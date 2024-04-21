@@ -212,7 +212,7 @@ def populate_db(startpath, db_connection):
 # Use "/" otherwise
 #####################################################################################################
 
-db_connection = connect_db("localhost", "root", "GCLVTI99P27F061Y", "DCR", "mysql_native_password")
+db_connection = connect_db("localhost", "root", "your_db_password", "DCR", "mysql_native_password")
 create_tables(db_connection, os.pathconf('/', os.pathconf_names['PC_PATH_MAX']))
 create_index(db_connection)
 populate_db('/Users/svitol/Desktop', db_connection) 
