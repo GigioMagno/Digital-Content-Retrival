@@ -82,7 +82,7 @@ def search_name_and_occurrences(db_connection, keyword, batch_size):
 ########################################## Main #############################################
 #############################################################################################
 
-db_connection = connect_db("localhost", "root", "GCLVTI99P27F061Y", "dcr", "mysql_native_password")
+db_connection = connect_db("localhost", "root", "your_db_password", "dcr", "mysql_native_password")
 keyword = input("Insert the name or partial name to retrive: ")
 MAX_BATCH_SIZE = 10
 search_name_and_occurrences(db_connection, keyword, MAX_BATCH_SIZE)
