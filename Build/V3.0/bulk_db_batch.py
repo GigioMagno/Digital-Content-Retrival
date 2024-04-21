@@ -197,7 +197,7 @@ def populate_db(startpath, db_connection, MAX_BATCH_SIZE):
 # Use "\" otherwise
 #####################################################################################################
 
-db_connection = connect_db("localhost", "root", "GCLVTI99P27F061Y", "DCR", "mysql_native_password")
+db_connection = connect_db("localhost", "root", "your_db_password", "DCR", "mysql_native_password")
 create_tables(db_connection, os.pathconf('/', os.pathconf_names['PC_PATH_MAX']))
 MAX_BATCH_SIZE = 10
 populate_db('/Users/svitol/', db_connection, MAX_BATCH_SIZE)
