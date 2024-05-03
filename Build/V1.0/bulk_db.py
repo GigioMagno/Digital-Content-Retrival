@@ -126,6 +126,7 @@ def insert_content_tuple(db_connection, content):
 def create_index(db_connection):
     db_reference = db_connection.cursor()
     db_reference.execute("CREATE FULLTEXT INDEX idx_page ON file_content (Txt);")
+    db_reference.execute("CREATE INDEX idx_name ON file_info (Name);")
     db_connection.commit()
     db_reference.close()
 
