@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 ################################################
 ########### Vito Giacalone (546646) ############
 ####### Digital content retrival project #######
