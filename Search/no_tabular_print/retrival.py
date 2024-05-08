@@ -74,7 +74,7 @@ def search_name_and_occurrences(db_connection, keyword, batch_size):
         if not out:
             break
         for _list_ in out:
-            print(f'%s\t%s\t%d' % (_list_[0], _list_[1], _list_[2]))
+            print('%s\t%s\t%d' % (_list_[0], _list_[1], _list_[2]))
 
     db_reference.close()
     #query che ritorna il le tuple che hanno occorrenza nel nome
