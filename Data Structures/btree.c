@@ -1,15 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-struct node
-{
-	char *searchKey;
-	struct node *left;
-	struct node *right;
-};
-
-typedef struct node node;
+#include "btree.h"
 
 node *create_node(char *searchKey){
     node *n = malloc(sizeof(node)); // Alloca memoria per il nuovo nodo
@@ -19,7 +8,6 @@ node *create_node(char *searchKey){
     return n;
 }
 
-void add_node(node **root, node *newnode);
 void add_node(node **root, node *newnode){
     if (*root == NULL){
         *root = newnode;
@@ -35,7 +23,6 @@ void add_node(node **root, node *newnode){
     }
 }
 
-void print_tree(node *root);
 void print_tree(node *root){
     if (root == NULL){
         return;
@@ -47,7 +34,6 @@ void print_tree(node *root){
     print_tree(root->right); // Visitiamo il sottoalbero destro
 }
 
-node *get_minimum(node **root);
 node *get_minimum(node **root){
 
 	if (*root == NULL)
@@ -64,7 +50,22 @@ node *get_minimum(node **root){
 	return current;
 }
 
-void delete_node(node **root, char* searchKey);
+node *get_maximum(node **root){
+
+    if (*root == NULL)
+    {
+        return NULL;    //Albero vuoto
+    }
+    if ((*root)->right == NULL)
+    {
+        return *root;           //se l'albero ha un solo nodo
+    }
+    node *current = *root;
+    while(current->right != NULL)
+        current = current->right;
+    return current;
+}
+
 void delete_node(node **root, char* searchKey) {
     if (*root == NULL) {
         return; // L'albero è vuoto o il nodo non è stato trovato
@@ -103,3 +104,31 @@ void delete_node(node **root, char* searchKey) {
         }
     }
 }
+
+// void check_delete(node **parent, node **child, char *searchKey);
+// void check_delete(node **parent, node **child, char *searchKey){
+
+//  node *_parent_ = *parent;
+//  node *_child_ = *child;
+
+//  if (_child_->right != NULL && _child_->left == NULL)
+//  {
+//      _parent_->right = _child_->right;
+//      free(child);
+//  } else if (_child_->right == NULL && _child_->left != NULL)
+//  {
+//      _parent_->left = _child_->left;
+//      free(child);
+//  } else if (_child_->right != NULL && _child_->left != NULL)
+//  {
+//      node *minimum = get_minimum(&(_child_->right));
+//      minimum->left = _child_->left;
+//      _child_->right->left = minimum->right;
+//      minimum->right = _child_->right;
+//      free(_child_);
+//      _parent_->left = minimum;
+//  }
+//  //non sono alla fine dell'albero, ma sono all'interno.
+// }
+
+//strcmp(_child_->searchKey,searchKey)==0 
