@@ -5,6 +5,7 @@ node *create_node(char *searchKey){
     n->searchKey = strdup(searchKey); // Alloca memoria per la chiave e copiala
     n->left = NULL;
     n->right = NULL;
+    n->posting = NULL;
     return n;
 }
 
@@ -23,15 +24,15 @@ void add_node(node **root, node *newnode){
     }
 }
 
-void print_tree(node *root){
+void print_tree(node *root, FILE* f){
     if (root == NULL){
         return;
     }
 
-    printf("%s\n", root->searchKey); // Stampiamo il valore del nodo corrente
+    fprintf(f, "%s\n", root->searchKey); // Stampiamo il valore del nodo corrente
 
-    print_tree(root->left); // Visitiamo il sottoalbero sinistro
-    print_tree(root->right); // Visitiamo il sottoalbero destro
+    print_tree(root->left, f); // Visitiamo il sottoalbero sinistro
+    print_tree(root->right, f); // Visitiamo il sottoalbero destro
 }
 
 node *get_minimum(node **root){
@@ -104,31 +105,3 @@ void delete_node(node **root, char* searchKey) {
         }
     }
 }
-
-// void check_delete(node **parent, node **child, char *searchKey);
-// void check_delete(node **parent, node **child, char *searchKey){
-
-//  node *_parent_ = *parent;
-//  node *_child_ = *child;
-
-//  if (_child_->right != NULL && _child_->left == NULL)
-//  {
-//      _parent_->right = _child_->right;
-//      free(child);
-//  } else if (_child_->right == NULL && _child_->left != NULL)
-//  {
-//      _parent_->left = _child_->left;
-//      free(child);
-//  } else if (_child_->right != NULL && _child_->left != NULL)
-//  {
-//      node *minimum = get_minimum(&(_child_->right));
-//      minimum->left = _child_->left;
-//      _child_->right->left = minimum->right;
-//      minimum->right = _child_->right;
-//      free(_child_);
-//      _parent_->left = minimum;
-//  }
-//  //non sono alla fine dell'albero, ma sono all'interno.
-// }
-
-//strcmp(_child_->searchKey,searchKey)==0 
