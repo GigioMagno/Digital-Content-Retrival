@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "btree.h"
+#include "bstree.h"
+
 
 int main(int argc, char const *argv[]){
     node *root = NULL;
