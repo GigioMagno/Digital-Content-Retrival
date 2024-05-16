@@ -206,5 +206,3 @@ MAX_BATCH_SIZE = 10
 populate_db('/Users/svitol/', db_connection, MAX_BATCH_SIZE)
 create_index(db_connection)
 db_connection.close()
-
-#implementare batch per transaction
