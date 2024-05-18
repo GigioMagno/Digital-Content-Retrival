@@ -8,9 +8,9 @@ record *create_record(int *mem){
 	return r;
 }
 
-// int *top(record *tos){
-// 	return *(tos->memaddr);
-// }
+int *head_of_stack(record *tos){
+	return tos->memaddr;
+}
 
 record *push(record **top, int *addr){
 

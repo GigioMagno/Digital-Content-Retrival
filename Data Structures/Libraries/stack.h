@@ -14,7 +14,7 @@ typedef struct record record;
 record *create_record(int *mem);
 record *push(record **top, int *addr);
 record *pop(record **top);
-// int *top(record *tos);
+int *head_of_stack(record *tos);
 int is_empty(record *top);
 void print_stack(record *top);
 void print_stack2(record *top);
